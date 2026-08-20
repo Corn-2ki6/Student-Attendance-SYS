@@ -22,6 +22,15 @@ The system provides the following basic functions:
 - If the account or password is incorrect, the system displays an error message and asks the user to try again.
 - Users can log out of the system.
 
+#### 1.1 Forgot Password
+
+- Students and lecturers can use the **Forgot Password** function if they cannot remember their password.
+- The user enters the email address associated with their account.
+- The system verifies whether the email address is registered in the system.
+- If the email address is registered, the system provides a password recovery process.
+- If the email address is not registered, the system displays an appropriate error message.
+- After successfully completing the password recovery process, the user can use the new password to log in to the system.
+
 ---
 
 ### 2. Student Functions
