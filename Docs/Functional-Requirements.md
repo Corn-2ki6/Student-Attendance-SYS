@@ -145,9 +145,9 @@ The attendance status can be:
 
 #### 3.4 Manage Attendance Session Status
 
-- Lecturers can open an attendance session so that students can submit their attendance.
-- The system automatically opens an attendance session when the scheduled start time is reached.
-- When the attendance session is Open, students in the corresponding class can submit attendance.
+- When a lecturer creates an attendance session, the session is initially set to Scheduled.
+- The system automatically opens the attendance session when the scheduled start time is reached.
+- When the attendance session is Open, students in the corresponding class can submit their attendance.
 - The system automatically closes the attendance session when the scheduled end time is reached.
 - When the attendance session is Closed, students can no longer submit new attendance records.
 - When an attendance session is closed, students who have not submitted attendance are automatically marked as Absent.
