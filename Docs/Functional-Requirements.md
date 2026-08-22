@@ -98,7 +98,7 @@ The attendance status can be:
 - The attendance percentage is calculated as the number of Present attendance records divided by the total number of completed attendance sessions, multiplied by 100.
 - Late and Absent attendance records are not counted as Present when calculating the attendance percentage.
 
-#### 2.6 View Personal Information
+#### 2.6 View Profile
 
 - Students can view their personal information.
 - The information may include:
