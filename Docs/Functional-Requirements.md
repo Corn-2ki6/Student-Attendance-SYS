@@ -94,7 +94,9 @@ The attendance status can be:
 #### 2.5 View Attendance Percentage
 
 - Students can view their attendance percentage for each course.
-- The system calculates the attendance percentage based on the recorded attendance sessions.
+- The system calculates the attendance percentage based on completed attendance sessions.
+- The attendance percentage is calculated as the number of Present attendance records divided by the total number of completed attendance sessions, multiplied by 100.
+- Late and Absent attendance records are not counted as Present when calculating the attendance percentage.
 
 #### 2.6 View Personal Information
 
