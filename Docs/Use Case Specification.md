@@ -19,7 +19,7 @@
 | **4** | View Profile | View personal information | General |
 | **5** | View Classes | View enrolled/taught class list | General |
 | **6** | View Schedule | View class timetable | Student |
-| **7** | Check Attendance | Perform attendance check-in | Student |
+| **7** | Submit Attendance | Perform attendance check-in | Student |
 | **8** | Enter Attendance Password | Enter password for attendance check-in | Student |
 | **9** | View Attendance History | View detailed attendance history | Student |
 | **10** | View Attendance Percentage | View overall attendance rate/percentage | Student |
