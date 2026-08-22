@@ -42,7 +42,6 @@ The system provides the following basic functions:
   - Course name
   - Class code
   - Lecturer
-  - Class schedule
   - Classroom
 
 #### 2.2 View Class Schedule
@@ -87,17 +86,16 @@ The system provides the following basic functions:
 The attendance status can be:
 
 - **Present:** The student attended the class.
-- **Late:** The student attended after the defined attendance time.
-- **Absent:** The student did not attend the class.
-- **Pending:** The attendance has not been confirmed or recorded yet.
+- **Late:** The lecturer manually marks the student as Late when the student arrives late to the class.
+- **Absent:** The student did not submit attendance before the attendance session was closed.
+- **Pending:** The student has not submitted attendance while the attendance session is still open.
 
 #### 2.5 View Attendance Percentage
 
 - Students can view their attendance percentage for each course.
-- The system calculates the attendance percentage based on completed attendance sessions.
+- The system calculates the attendance percentage based on the completed attendance sessions of the class in which the student is enrolled for the course.
 - The attendance percentage is calculated as the number of Present attendance records divided by the total number of completed attendance sessions, multiplied by 100.
 - Late and Absent attendance records are not counted as Present when calculating the attendance percentage.
-
 #### 2.6 View Profile
 
 - Students can view their personal information.
@@ -147,12 +145,12 @@ The attendance status can be:
 
 #### 3.4 Manage Attendance Session Status
 
-- When a lecturer creates an attendance session, the session is initially set to **Scheduled**.
-- Lecturers can manually open a scheduled attendance session before the scheduled start time when necessary.
-- The system automatically opens the attendance session when the scheduled start time is reached if it has not been opened manually.
+- When a lecturer creates an attendance session, the lecturer must define the scheduled start time and end time.
+- The session is initially set to **Scheduled**.
+- The system automatically opens the attendance session when the scheduled start time is reached.
 - When the attendance session is **Open**, students in the corresponding class can submit their attendance.
-- Lecturers can manually close an open attendance session before the scheduled end time when necessary.
-- The system automatically closes the attendance session when the scheduled end time is reached if it has not been closed manually.
+- Lecturers can manually close an open attendance session at any time when necessary.
+- If the lecturer does not close the session manually, the system automatically closes the attendance session when the scheduled end time is reached.
 - When the attendance session is **Closed**, students can no longer submit new attendance records.
 - When an attendance session is closed, students who have not submitted attendance are automatically marked as **Absent**.
 
