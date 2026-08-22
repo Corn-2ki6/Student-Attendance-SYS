@@ -203,7 +203,7 @@
           <mxGeometry height="60" width="120" x="770" y="420" as="geometry" />
         </mxCell>
         <mxCell id="JJEb-mAz-rlOFglnryTf-11" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Scheduled" vertex="1">
-          <mxGeometry height="30" width="60" x="795" y="435" as="geometry" />
+          <mxGeometry height="30" width="60" x="800" y="435" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
