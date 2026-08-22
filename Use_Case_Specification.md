@@ -2,559 +2,559 @@
 
 ---
 
-## 1. Sơ đồ Use-Case
+## 1. Use Case Diagram
 
-### 1.1. Danh sách các Actor
+### 1.1. Actor List
 
-| STT | Actor | Ý nghĩa |
+| No. | Actor | Description |
 | :---: | :--- | :--- |
-| **1** | Student | Sinh viên, người dùng tham gia lớp học và thực hiện điểm danh. |
-| **2** | Lecturer | Giảng viên, người dùng quản lý lớp học và quản lý điểm danh. |
+| **1** | Student | A user who participates in classes and performs attendance check-in. |
+| **2** | Lecturer | A user who manages classes and attendance activities. |
 
-### 1.2. Danh sách các Use-case
+### 1.2. Use Case List
 
-| STT | Use-case | Ý nghĩa | Ghi chú (Nhóm) |
+| No. | Use Case | Description | Group |
 | :---: | :--- | :--- | :--- |
-| **1** | Login | Đăng nhập hệ thống | Chung |
-| **2** | Log out | Đăng xuất hệ thống | Chung |
-| **3** | Forgot Password | Khôi phục mật khẩu | Chung |
-| **4** | View Profile | Xem thông tin cá nhân | Chung |
-| **5** | View Dashboard | Xem bảng điều khiển | Chung |
-| **6** | View Classes | Xem danh sách lớp học | Chung |
-| **7** | View Schedule | Xem thời khóa biểu | Student |
-| **8** | Check Attendance | Thực hiện điểm danh | Student |
-| **9** | Enter Attendance Password | Nhập mật khẩu điểm danh | Student |
-| **10** | View Attendance History | Xem lịch sử điểm danh | Student |
-| **11** | View Attendance Percentage | Xem tỷ lệ điểm danh | Student |
-| **12** | View Student List | Xem danh sách sinh viên | Lecturer |
-| **13** | Create Attendance Session | Tạo phiên điểm danh | Lecturer |
-| **14** | Configure Attendance | Cấu hình điểm danh | Lecturer |
-| **15** | Monitor Attendance | Theo dõi điểm danh | Lecturer |
-| **16** | Update Attendance | Cập nhật điểm danh | Lecturer |
-| **17** | Close Attendance | Đóng phiên điểm danh | Lecturer |
-| **18** | View Attendance Report | Xem báo cáo điểm danh | Lecturer |
+| **1** | Login | Authenticate and access the system | Common |
+| **2** | Log out | Sign out of the system | Common |
+| **3** | Forgot Password | Recover a forgotten password | Common |
+| **4** | View Profile | View personal account information | Common |
+| **5** | View Dashboard | View the system dashboard | Common |
+| **6** | View Classes | View the list of classes | Common |
+| **7** | View Schedule | View the class schedule | Student |
+| **8** | Check Attendance | Record attendance | Student |
+| **9** | Enter Attendance Password | Enter the attendance password | Student |
+| **10** | View Attendance History | View attendance history | Student |
+| **11** | View Attendance Percentage | View the attendance percentage | Student |
+| **12** | View Student List | View the list of enrolled students | Lecturer |
+| **13** | Create Attendance Session | Create an attendance session | Lecturer |
+| **14** | Configure Attendance | Configure attendance settings | Lecturer |
+| **15** | Monitor Attendance | Monitor attendance in real time | Lecturer |
+| **16** | Update Attendance | Update attendance records | Lecturer |
+| **17** | Close Attendance | Close an attendance session | Lecturer |
+| **18** | View Attendance Report | View attendance reports | Lecturer |
 
 ---
 
-## 2. Use-case Login
+## 2. Use Case: Login
 
-### 2.1. Tóm tắt
-Use-case này mô tả cách một người dùng (Student/Lecturer) đăng nhập vào Hệ thống điểm danh sinh viên.
+### 2.1. Summary
+This use case describes how a user (Student/Lecturer) logs in to the Student Attendance System.
 
-### 2.2. Dòng sự kiện
-#### 2.2.1. Dòng sự kiện chính
-1. Use-case này bắt đầu khi một người dùng muốn đăng nhập vào hệ thống.
-2. Hệ thống yêu cầu người dùng nhập tên đăng nhập (email hoặc mã số) và mật khẩu.
-3. Người dùng nhập thông tin và yêu cầu đăng nhập.
-4. Hệ thống kiểm tra thông tin. Nếu đúng sẽ cho phép người dùng đăng nhập vào hệ thống và chuyển đến trang Dashboard tương ứng với vai trò.
+### 2.2. Flow of Events
+#### 2.2.1. Main Flow
+1. The use case begins when a user wants to log in to the system.
+2. The system prompts the user to enter a username (email address or identification number) and password.
+3. The user enters the credentials and submits the login request.
+4. The system validates the credentials. If they are correct, the system authenticates the user and redirects them to the Dashboard corresponding to their role.
 
-#### 2.2.2. Các dòng sự kiện khác
-##### 2.2.2.1. Sai thông tin đăng nhập
-Nếu người dùng nhập sai tên đăng nhập hoặc mật khẩu, hệ thống sẽ hiển thị một thông báo lỗi. Người dùng có thể nhập lại hoặc chọn quên mật khẩu.
+#### 2.2.2. Alternative Flows
+##### 2.2.2.1. Invalid Login Credentials
+If the user enters an incorrect username or password, the system displays an error message. The user may re-enter the credentials or select the Forgot Password option.
 
-### 2.3. Các yêu cầu đặc biệt
-Không có.
+### 2.3. Special Requirements
+None.
 
-### 2.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Người dùng ở trạng thái chưa đăng nhập.
+### 2.4. Precondition
+The user is not authenticated.
 
-### 2.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Nếu thành công, người dùng đã đăng nhập vào hệ thống. Ngược lại, trạng thái không đổi.
+### 2.5. Postcondition
+If the login is successful, the user is authenticated and logged in to the system. Otherwise, the system state remains unchanged.
 
-### 2.6. Điểm mở rộng
-Không có.
-
----
-
-## 3. Use-case Log out
-
-### 3.1. Tóm tắt
-Use-case này cho phép người dùng đăng xuất khỏi hệ thống.
-
-### 3.2. Dòng sự kiện
-#### 3.2.1. Dòng sự kiện chính
-1. Người dùng chọn chức năng Đăng xuất (Log out).
-2. Hệ thống hủy phiên làm việc của người dùng.
-3. Hệ thống chuyển hướng người dùng về trang Đăng nhập.
-
-#### 3.2.2. Các dòng sự kiện khác
-Không có.
-
-### 3.3. Các yêu cầu đặc biệt
-Không có.
-
-### 3.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Người dùng đang đăng nhập trong hệ thống.
-
-### 3.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Người dùng ở trạng thái chưa đăng nhập (khách).
-
-### 3.6. Điểm mở rộng
-Không có.
+### 2.6. Extension Points
+None.
 
 ---
 
-## 4. Use-case Forgot Password
+## 3. Use Case: Log out
 
-### 4.1. Tóm tắt
-Use-case này cho phép người dùng khôi phục lại mật khẩu khi bị quên.
+### 3.1. Summary
+This use case allows a user to log out of the system.
 
-### 4.2. Dòng sự kiện
-#### 4.2.1. Dòng sự kiện chính
-1. Người dùng chọn chức năng Quên mật khẩu.
-2. Hệ thống yêu cầu nhập email liên kết với tài khoản.
-3. Người dùng nhập email và xác nhận.
-4. Hệ thống kiểm tra email, tạo liên kết đặt lại mật khẩu và gửi vào email đó.
-5. Hệ thống thông báo đã gửi email thành công.
+### 3.2. Flow of Events
+#### 3.2.1. Main Flow
+1. The user selects the Log out function.
+2. The system terminates the user's active session.
+3. The system redirects the user to the Login page.
 
-#### 4.2.2. Các dòng sự kiện khác
-##### 4.2.2.1. Email không tồn tại
-Nếu email không có trong hệ thống, hệ thống báo lỗi. Người dùng có thể nhập lại email khác.
+#### 3.2.2. Alternative Flows
+None.
 
-### 4.3. Các yêu cầu đặc biệt
-Liên kết đặt lại mật khẩu chỉ có hiệu lực trong một khoảng thời gian nhất định (ví dụ 15 phút).
+### 3.3. Special Requirements
+None.
 
-### 4.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Người dùng chưa đăng nhập.
+### 3.4. Precondition
+The user is authenticated and has an active session.
 
-### 4.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Nếu thành công, email khôi phục được gửi đi. Hệ thống không đổi trạng thái đăng nhập.
+### 3.5. Postcondition
+The user is no longer authenticated and is returned to the guest state.
 
-### 4.6. Điểm mở rộng
-Không có.
+### 3.6. Extension Points
+None.
 
 ---
 
-## 5. Use-case View Profile
+## 4. Use Case: Forgot Password
 
-### 5.1. Tóm tắt
-Use-case này cho phép người dùng xem thông tin cá nhân của mình.
+### 4.1. Summary
+This use case allows a user to recover a forgotten password.
 
-### 5.2. Dòng sự kiện
-#### 5.2.1. Dòng sự kiện chính
-1. Người dùng chọn chức năng Xem hồ sơ (View Profile).
-2. Hệ thống truy xuất thông tin người dùng từ cơ sở dữ liệu.
-3. Hệ thống hiển thị các thông tin: Họ tên, Mã số, Email, Khoa/Ngành, v.v.
+### 4.2. Flow of Events
+#### 4.2.1. Main Flow
+1. The user selects the Forgot Password function.
+2. The system prompts the user to enter the email address associated with the account.
+3. The user enters the email address and confirms the request.
+4. The system verifies the email address, generates a password-reset link, and sends the link to the specified email address.
+5. The system notifies the user that the password-reset email has been sent successfully.
 
-#### 5.2.2. Các dòng sự kiện khác
-Không có.
+#### 4.2.2. Alternative Flows
+##### 4.2.2.1. Email Address Not Found
+If the email address does not exist in the system, the system displays an error message. The user may enter another email address.
 
-### 5.3. Các yêu cầu đặc biệt
-Không có.
+### 4.3. Special Requirements
+The password-reset link is valid only for a limited period (e.g., 15 minutes).
 
-### 5.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Người dùng đã đăng nhập.
+### 4.4. Precondition
+The user is not authenticated.
 
-### 5.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Không thay đổi.
+### 4.5. Postcondition
+If successful, the password-recovery email is sent. The user's authentication state remains unchanged.
 
-### 5.6. Điểm mở rộng
-Không có.
-
----
-
-## 6. Use-case View Dashboard
-
-### 6.1. Tóm tắt
-Use-case này cho phép người dùng xem bảng điều khiển tổng quan khi vừa đăng nhập.
-
-### 6.2. Dòng sự kiện
-#### 6.2.1. Dòng sự kiện chính
-1. Người dùng đăng nhập thành công hoặc bấm vào logo/trang chủ.
-2. Hệ thống tổng hợp các thông tin quan trọng:
-   - **Với sinh viên:** Lớp học hôm nay, tỷ lệ chuyên cần tổng quan.
-   - **Với giảng viên:** Các lớp đang dạy, lịch dạy hôm nay.
-3. Hệ thống hiển thị bảng điều khiển.
-
-#### 6.2.2. Các dòng sự kiện khác
-Không có.
-
-### 6.3. Các yêu cầu đặc biệt
-Không có.
-
-### 6.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Người dùng đã đăng nhập.
-
-### 6.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Không thay đổi.
-
-### 6.6. Điểm mở rộng
-Không có.
+### 4.6. Extension Points
+None.
 
 ---
 
-## 7. Use-case View Classes
+## 5. Use Case: View Profile
 
-### 7.1. Tóm tắt
-Use-case này cho phép người dùng xem danh sách các lớp học mà mình tham gia hoặc giảng dạy.
+### 5.1. Summary
+This use case allows a user to view their personal information.
 
-### 7.2. Dòng sự kiện
-#### 7.2.1. Dòng sự kiện chính
-1. Người dùng chọn chức năng Xem lớp học (View Classes).
-2. Hệ thống truy xuất danh sách lớp học liên kết với người dùng.
-3. Hệ thống hiển thị danh sách gồm: Mã lớp, Tên môn học, Giảng viên, Học kỳ.
+### 5.2. Flow of Events
+#### 5.2.1. Main Flow
+1. The user selects the View Profile function.
+2. The system retrieves the user's information from the database.
+3. The system displays information such as full name, identification number, email address, faculty/major, and other relevant information.
 
-#### 7.2.2. Các dòng sự kiện khác
-Không có.
+#### 5.2.2. Alternative Flows
+None.
 
-### 7.3. Các yêu cầu đặc biệt
-Không có.
+### 5.3. Special Requirements
+None.
 
-### 7.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Người dùng đã đăng nhập.
+### 5.4. Precondition
+The user is authenticated.
 
-### 7.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Không thay đổi.
+### 5.5. Postcondition
+The system state remains unchanged.
 
-### 7.6. Điểm mở rộng
-Không có.
-
----
-
-## 8. Use-case View Schedule
-
-### 8.1. Tóm tắt
-Use-case này cho phép sinh viên xem thời khóa biểu các môn học trong tuần hoặc tháng.
-
-### 8.2. Dòng sự kiện
-#### 8.2.1. Dòng sự kiện chính
-1. Sinh viên chọn chức năng Xem thời khóa biểu (View Schedule).
-2. Hệ thống lấy dữ liệu lịch học của sinh viên theo thời gian hiện tại.
-3. Hệ thống hiển thị lịch học dưới dạng bảng, bao gồm: Môn học, Thời gian, Phòng học.
-
-#### 8.2.2. Các dòng sự kiện khác
-Không có.
-
-### 8.3. Các yêu cầu đặc biệt
-Không có.
-
-### 8.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Sinh viên đã đăng nhập.
-
-### 8.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Không thay đổi.
-
-### 8.6. Điểm mở rộng
-Không có.
+### 5.6. Extension Points
+None.
 
 ---
 
-## 9. Use-case Check Attendance
+## 6. Use Case: View Dashboard
 
-### 9.1. Tóm tắt
-Use-case này cho phép Sinh viên thực hiện điểm danh để xác nhận sự có mặt trong lớp học.
+### 6.1. Summary
+This use case allows a user to view an overview dashboard after logging in.
 
-### 9.2. Dòng sự kiện
-#### 9.2.1. Dòng sự kiện chính
-1. Sinh viên chọn chức năng điểm danh của một lớp học đang diễn ra.
-2. Hệ thống kiểm tra phiên điểm danh có đang mở hay không.
-3. Hệ thống hiển thị giao diện điểm danh. Nếu phiên điểm danh có thiết lập mật khẩu, hệ thống sẽ yêu cầu sinh viên nhập mật khẩu.
-4. Sinh viên nhập mật khẩu (nếu có) và chọn xác nhận điểm danh.
-5. Hệ thống kiểm tra mật khẩu (nếu có). Nếu hợp lệ, hệ thống ghi nhận trạng thái "Có mặt" và thời gian thực hiện.
-6. Hệ thống thông báo điểm danh thành công.
+### 6.2. Flow of Events
+#### 6.2.1. Main Flow
+1. The user successfully logs in or selects the logo/home page.
+2. The system aggregates key information:
+   - **For students:** Today's classes and overall attendance percentage.
+   - **For lecturers:** Classes being taught and today's teaching schedule.
+3. The system displays the Dashboard.
 
-#### 9.2.2. Các dòng sự kiện khác
-##### 9.2.2.1. Phiên điểm danh chưa mở hoặc đã đóng
-Nếu phiên điểm danh chưa được mở hoặc đã hết thời gian, hệ thống hiển thị thông báo lỗi. Use-case kết thúc.
+#### 6.2.2. Alternative Flows
+None.
 
-##### 9.2.2.2. Nhập sai mật khẩu điểm danh
-Nếu phiên điểm danh có yêu cầu mật khẩu và sinh viên nhập sai, hệ thống báo lỗi và yêu cầu nhập lại mật khẩu.
+### 6.3. Special Requirements
+None.
 
-### 9.3. Các yêu cầu đặc biệt
-Không có.
+### 6.4. Precondition
+The user is authenticated.
 
-### 9.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Sinh viên đã đăng nhập.
+### 6.5. Postcondition
+The system state remains unchanged.
 
-### 9.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Trạng thái điểm danh của sinh viên được cập nhật vào CSDL.
-
-### 9.6. Điểm mở rộng
-Use-case `Enter Attendance Password` (Đã được tích hợp trực tiếp vào Dòng sự kiện chính).
+### 6.6. Extension Points
+None.
 
 ---
 
-## 10. Use-case Enter Attendance Password
+## 7. Use Case: View Classes
 
-### 10.1. Tóm tắt
-Use-case này mô tả chi tiết việc sinh viên nhập mật khẩu điểm danh nếu phiên điểm danh có yêu cầu bảo mật.
+### 7.1. Summary
+This use case allows a user to view the list of classes in which they are enrolled or which they teach.
 
-### 10.2. Dòng sự kiện
-#### 10.2.1. Dòng sự kiện chính
-1. Tại bước 3 của Use-case Check Attendance, hệ thống phát hiện phiên điểm danh có cài mật khẩu.
-2. Hệ thống hiển thị ô nhập mật khẩu.
-3. Sinh viên nhập mật khẩu và bấm Xác nhận.
-4. Hệ thống kiểm tra khớp mật khẩu và tiếp tục quá trình ghi nhận điểm danh.
+### 7.2. Flow of Events
+#### 7.2.1. Main Flow
+1. The user selects the View Classes function.
+2. The system retrieves the classes associated with the user.
+3. The system displays a list containing the class code, course name, lecturer, and semester.
 
-#### 10.2.2. Các dòng sự kiện khác
-##### 10.2.2.1. Sai mật khẩu
-Hệ thống báo mật khẩu không đúng. Sinh viên phải nhập lại.
+#### 7.2.2. Alternative Flows
+None.
 
-### 10.3. Các yêu cầu đặc biệt
-Không có.
+### 7.3. Special Requirements
+None.
 
-### 10.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Sinh viên đang trong quá trình Check Attendance.
+### 7.4. Precondition
+The user is authenticated.
 
-### 10.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Quay lại hoàn tất Check Attendance nếu đúng mật khẩu.
+### 7.5. Postcondition
+The system state remains unchanged.
 
-### 10.6. Điểm mở rộng
-Không có.
+### 7.6. Extension Points
+None.
 
 ---
 
-## 11. Use-case View Attendance History
+## 8. Use Case: View Schedule
 
-### 11.1. Tóm tắt
-Use-case này cho phép sinh viên xem lại chi tiết lịch sử các lần điểm danh của từng môn học.
+### 8.1. Summary
+This use case allows a student to view their course schedule by week or month.
 
-### 11.2. Dòng sự kiện
-#### 11.2.1. Dòng sự kiện chính
-1. Sinh viên chọn chức năng Xem lịch sử điểm danh của một môn cụ thể.
-2. Hệ thống truy xuất dữ liệu các buổi học đã qua.
-3. Hệ thống hiển thị danh sách các buổi học kèm trạng thái: Có mặt, Vắng mặt, Đi trễ.
+### 8.2. Flow of Events
+#### 8.2.1. Main Flow
+1. The student selects the View Schedule function.
+2. The system retrieves the student's class schedule based on the selected/current time period.
+3. The system displays the schedule in a tabular format, including course, time, and classroom.
 
-#### 11.2.2. Các dòng sự kiện khác
-Không có.
+#### 8.2.2. Alternative Flows
+None.
 
-### 11.3. Các yêu cầu đặc biệt
-Không có.
+### 8.3. Special Requirements
+None.
 
-### 11.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Sinh viên đã đăng nhập.
+### 8.4. Precondition
+The student is authenticated.
 
-### 11.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Không thay đổi.
+### 8.5. Postcondition
+The system state remains unchanged.
 
-### 11.6. Điểm mở rộng
-Không có.
-
----
-
-## 12. Use-case View Attendance Percentage
-
-### 12.1. Tóm tắt
-Use-case này tính toán và hiển thị cho sinh viên thấy tỷ lệ % số buổi đã đi học so với tổng số buổi.
-
-### 12.2. Dòng sự kiện
-#### 12.2.1. Dòng sự kiện chính
-1. Sinh viên chọn xem thống kê chuyên cần.
-2. Hệ thống tính toán: `(Số buổi có mặt / Tổng số buổi đã học) * 100`.
-3. Hệ thống hiển thị tỷ lệ % bằng biểu đồ hoặc số liệu.
-
-#### 12.2.2. Các dòng sự kiện khác
-Không có.
-
-### 12.3. Các yêu cầu đặc biệt
-Nếu tỷ lệ dưới mức quy định (ví dụ dưới 80%), hệ thống có thể bôi đỏ để cảnh báo.
-
-### 12.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Sinh viên đã đăng nhập.
-
-### 12.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Không thay đổi.
-
-### 12.6. Điểm mở rộng
-Không có.
+### 8.6. Extension Points
+None.
 
 ---
 
-## 13. Use-case View Student List
+## 9. Use Case: Check Attendance
 
-### 13.1. Tóm tắt
-Use-case này cho phép giảng viên xem danh sách tất cả sinh viên đăng ký trong một lớp học.
+### 9.1. Summary
+This use case allows a student to record attendance and confirm their presence in a class.
 
-### 13.2. Dòng sự kiện
-#### 13.2.1. Dòng sự kiện chính
-1. Giảng viên vào một lớp học và chọn Xem danh sách sinh viên.
-2. Hệ thống truy xuất dữ liệu danh sách lớp.
-3. Hệ thống hiển thị danh sách gồm: MSSV, Họ tên, Trạng thái (đang học, đã rút...).
+### 9.2. Flow of Events
+#### 9.2.1. Main Flow
+1. The student selects the attendance function for an ongoing class.
+2. The system verifies whether the attendance session is currently open.
+3. The system displays the attendance interface. If the attendance session requires a password, the system prompts the student to enter it.
+4. The student enters the password, if required, and submits the attendance request.
+5. The system validates the password, if applicable. If valid, the system records the student's attendance status as "Present" together with the attendance timestamp.
+6. The system displays a success notification confirming that attendance has been recorded.
 
-#### 13.2.2. Các dòng sự kiện khác
-Không có.
+#### 9.2.2. Alternative Flows
+##### 9.2.2.1. Attendance Session Not Open or Already Closed
+If the attendance session has not been opened or has expired, the system displays an error message and terminates the use case.
 
-### 13.3. Các yêu cầu đặc biệt
-Không có.
+##### 9.2.2.2. Invalid Attendance Password
+If the attendance session requires a password and the student enters an incorrect password, the system displays an error message and prompts the student to enter the password again.
 
-### 13.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Giảng viên đã đăng nhập.
+### 9.3. Special Requirements
+None.
 
-### 13.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Không thay đổi.
+### 9.4. Precondition
+The student is authenticated.
 
-### 13.6. Điểm mở rộng
-Không có.
+### 9.5. Postcondition
+The student's attendance status is updated in the database.
 
----
-
-## 14. Use-case Create Attendance Session
-
-### 14.1. Tóm tắt
-Use-case này cho phép Giảng viên tạo và mở một phiên điểm danh cho sinh viên.
-
-### 14.2. Dòng sự kiện
-#### 14.2.1. Dòng sự kiện chính
-1. Giảng viên chọn chức năng tạo phiên điểm danh cho một lớp học.
-2. Hệ thống yêu cầu nhập cấu hình (thời gian bắt đầu, kết thúc, có dùng mật khẩu không).
-3. Giảng viên nhập thông tin và yêu cầu tạo.
-4. Hệ thống mở phiên điểm danh và thông báo thành công.
-
-#### 14.2.2. Các dòng sự kiện khác
-##### 14.2.2.1. Lỗi cấu hình
-Nếu thời gian kết thúc nhỏ hơn thời gian bắt đầu, hệ thống báo lỗi.
-
-### 14.3. Các yêu cầu đặc biệt
-Không có.
-
-### 14.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Giảng viên đã đăng nhập.
-
-### 14.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Phiên điểm danh mới được tạo.
-
-### 14.6. Điểm mở rộng
-Không có.
+### 9.6. Extension Points
+The `Enter Attendance Password` use case is integrated directly into the Main Flow.
 
 ---
 
-## 15. Use-case Configure Attendance
+## 10. Use Case: Enter Attendance Password
 
-### 15.1. Tóm tắt
-Use-case này cho phép giảng viên chỉnh sửa các thông số của một phiên điểm danh đang mở hoặc sắp mở.
+### 10.1. Summary
+This use case describes how a student enters the attendance password when an attendance session requires password-based verification.
 
-### 15.2. Dòng sự kiện
-#### 15.2.1. Dòng sự kiện chính
-1. Giảng viên chọn một phiên điểm danh và chọn Cấu hình.
-2. Hệ thống hiển thị các thông số hiện tại (thời gian, mật khẩu).
-3. Giảng viên thay đổi thông số (ví dụ: gia hạn thêm 5 phút) và lưu lại.
-4. Hệ thống cập nhật cấu hình và thông báo thành công.
+### 10.2. Flow of Events
+#### 10.2.1. Main Flow
+1. During Step 3 of the `Check Attendance` use case, the system detects that the attendance session is password-protected.
+2. The system displays a password input field.
+3. The student enters the password and selects Confirm.
+4. The system validates the password and proceeds with recording the student's attendance.
 
-#### 15.2.2. Các dòng sự kiện khác
-Không có.
+#### 10.2.2. Alternative Flows
+##### 10.2.2.1. Invalid Password
+The system displays an error indicating that the password is incorrect. The student must re-enter the password.
 
-### 15.3. Các yêu cầu đặc biệt
-Không có.
+### 10.3. Special Requirements
+None.
 
-### 15.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Giảng viên đã đăng nhập và quản lý lớp học.
+### 10.4. Precondition
+The student is in the process of executing the `Check Attendance` use case.
 
-### 15.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Thông tin phiên điểm danh được cập nhật.
+### 10.5. Postcondition
+If the password is valid, the system returns to the `Check Attendance` use case to complete the attendance process.
 
-### 15.6. Điểm mở rộng
-Không có.
-
----
-
-## 16. Use-case Monitor Attendance
-
-### 16.1. Tóm tắt
-Use-case này cho phép giảng viên theo dõi trực tiếp số lượng và danh sách sinh viên đã điểm danh trong lúc phiên điểm danh đang mở.
-
-### 16.2. Dòng sự kiện
-#### 16.2.1. Dòng sự kiện chính
-1. Giảng viên mở giao diện Theo dõi điểm danh của một phiên đang diễn ra.
-2. Hệ thống liên tục cập nhật danh sách sinh viên đã bấm "Xác nhận".
-3. Hệ thống hiển thị sĩ số hiện tại: Số sinh viên đã điểm danh / Tổng số sinh viên.
-
-#### 16.2.2. Các dòng sự kiện khác
-Không có.
-
-### 16.3. Các yêu cầu đặc biệt
-Hệ thống cập nhật danh sách điểm danh khi các dữ liệu điểm danh mới được gửi.
-
-### 16.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Giảng viên đã đăng nhập, phiên điểm danh đang mở.
-
-### 16.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Không thay đổi.
-
-### 16.6. Điểm mở rộng
-Không có.
+### 10.6. Extension Points
+None.
 
 ---
 
-## 17. Use-case Update Attendance
+## 11. Use Case: View Attendance History
 
-### 17.1. Tóm tắt
-Use-case này cho phép giảng viên chỉnh sửa thủ công trạng thái điểm danh của sinh viên (chuyển từ vắng mặt sang có mặt, đi trễ...).
+### 11.1. Summary
+This use case allows a student to review detailed attendance records for previous class sessions of a specific course.
 
-### 17.2. Dòng sự kiện
-#### 17.2.1. Dòng sự kiện chính
-1. Giảng viên chọn danh sách điểm danh của một buổi học.
-2. Giảng viên tìm sinh viên cần sửa và đổi trạng thái (VD: từ Vắng thành Có mặt).
-3. Giảng viên bấm Lưu.
-4. Hệ thống cập nhật lại trạng thái vào CSDL và thông báo thành công.
+### 11.2. Flow of Events
+#### 11.2.1. Main Flow
+1. The student selects the View Attendance History function for a specific course.
+2. The system retrieves attendance data for previous class sessions.
+3. The system displays a list of class sessions together with attendance statuses: Present, Absent, or Late.
 
-#### 17.2.2. Các dòng sự kiện khác
-Không có.
+#### 11.2.2. Alternative Flows
+None.
 
-### 17.3. Các yêu cầu đặc biệt
-Hệ thống có thể lưu lại log (nhật ký) giảng viên đã chỉnh sửa điểm danh lúc nào để tiện kiểm tra.
+### 11.3. Special Requirements
+None.
 
-### 17.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Giảng viên đã đăng nhập.
+### 11.4. Precondition
+The student is authenticated.
 
-### 17.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Trạng thái điểm danh của sinh viên bị thay đổi trong hệ thống.
+### 11.5. Postcondition
+The system state remains unchanged.
 
-### 17.6. Điểm mở rộng
-Không có.
-
----
-
-## 18. Use-case Close Attendance
-
-### 18.1. Tóm tắt
-Use-case này cho phép giảng viên chủ động đóng phiên điểm danh trước khi hết hạn thời gian đã cài đặt.
-
-### 18.2. Dòng sự kiện
-#### 18.2.1. Dòng sự kiện chính
-1. Giảng viên chọn phiên điểm danh đang mở và bấm nút Đóng.
-2. Hệ thống yêu cầu xác nhận.
-3. Giảng viên xác nhận đóng.
-4. Hệ thống thay đổi trạng thái phiên thành "Đã đóng", sinh viên không thể điểm danh được nữa.
-
-#### 18.2.2. Các dòng sự kiện khác
-Không có.
-
-### 18.3. Các yêu cầu đặc biệt
-Tất cả các sinh viên chưa kịp điểm danh lúc này sẽ bị hệ thống tự động gán trạng thái "Vắng mặt".
-
-### 18.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Phiên điểm danh đang ở trạng thái Mở.
-
-### 18.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Phiên điểm danh chuyển sang trạng thái Đóng.
-
-### 18.6. Điểm mở rộng
-Không có.
+### 11.6. Extension Points
+None.
 
 ---
 
-## 19. Use-case View Attendance Report
+## 12. Use Case: View Attendance Percentage
 
-### 19.1. Tóm tắt
-Use-case này cho phép giảng viên xem báo cáo và thống kê chuyên cần tổng quát của cả lớp học.
+### 12.1. Summary
+This use case calculates and displays the percentage of attended class sessions relative to the total number of class sessions.
 
-### 19.2. Dòng sự kiện
-#### 19.2.1. Dòng sự kiện chính
-1. Giảng viên chọn chức năng Xem báo cáo điểm danh của một lớp học.
-2. Hệ thống tổng hợp dữ liệu tất cả các buổi học.
-3. Hệ thống hiển thị danh sách sinh viên kèm theo số buổi vắng, số buổi có mặt và tỷ lệ %. Giảng viên có thể chọn Xuất file (Excel/PDF).
+### 12.2. Flow of Events
+#### 12.2.1. Main Flow
+1. The student selects the attendance statistics function.
+2. The system calculates the attendance percentage using the following formula: `(Number of Present Sessions / Total Number of Sessions Held) * 100`.
+3. The system displays the attendance percentage as a chart or numerical value.
 
-#### 19.2.2. Các dòng sự kiện khác
-Không có.
+#### 12.2.2. Alternative Flows
+None.
 
-### 19.3. Các yêu cầu đặc biệt
-Không có.
+### 12.3. Special Requirements
+If the attendance percentage falls below the required threshold (e.g., below 80%), the system may highlight the value in red as a warning.
 
-### 19.4. Trạng thái hệ thống trước khi bắt đầu thực hiện Use-case
-Giảng viên đã đăng nhập.
+### 12.4. Precondition
+The student is authenticated.
 
-### 19.5. Trạng thái hệ thống sau khi thực hiện Use-case
-Không thay đổi.
+### 12.5. Postcondition
+The system state remains unchanged.
 
-### 19.6. Điểm mở rộng
-Không có.
+### 12.6. Extension Points
+None.
+
+---
+
+## 13. Use Case: View Student List
+
+### 13.1. Summary
+This use case allows a lecturer to view all students enrolled in a class.
+
+### 13.2. Flow of Events
+#### 13.2.1. Main Flow
+1. The lecturer opens a class and selects the View Student List function.
+2. The system retrieves the class enrollment data.
+3. The system displays a list containing student identification numbers, full names, and enrollment status (e.g., active, withdrawn).
+
+#### 13.2.2. Alternative Flows
+None.
+
+### 13.3. Special Requirements
+None.
+
+### 13.4. Precondition
+The lecturer is authenticated.
+
+### 13.5. Postcondition
+The system state remains unchanged.
+
+### 13.6. Extension Points
+None.
+
+---
+
+## 14. Use Case: Create Attendance Session
+
+### 14.1. Summary
+This use case allows a lecturer to create and open an attendance session for students.
+
+### 14.2. Flow of Events
+#### 14.2.1. Main Flow
+1. The lecturer selects the function to create an attendance session for a class.
+2. The system prompts the lecturer to specify the session configuration, including the start time, end time, and whether an attendance password is required.
+3. The lecturer enters the required information and submits the creation request.
+4. The system creates and opens the attendance session and displays a success notification.
+
+#### 14.2.2. Alternative Flows
+##### 14.2.2.1. Invalid Configuration
+If the end time is earlier than the start time, the system displays an error message.
+
+### 14.3. Special Requirements
+None.
+
+### 14.4. Precondition
+The lecturer is authenticated.
+
+### 14.5. Postcondition
+A new attendance session is created.
+
+### 14.6. Extension Points
+None.
+
+---
+
+## 15. Use Case: Configure Attendance
+
+### 15.1. Summary
+This use case allows a lecturer to modify the configuration parameters of an attendance session that is currently open or scheduled to open.
+
+### 15.2. Flow of Events
+#### 15.2.1. Main Flow
+1. The lecturer selects an attendance session and chooses the Configure function.
+2. The system displays the current configuration parameters, such as the session time and password.
+3. The lecturer modifies the required parameters (e.g., extends the session by 5 minutes) and saves the changes.
+4. The system updates the session configuration and displays a success notification.
+
+#### 15.2.2. Alternative Flows
+None.
+
+### 15.3. Special Requirements
+None.
+
+### 15.4. Precondition
+The lecturer is authenticated and has access to manage the class.
+
+### 15.5. Postcondition
+The attendance session configuration is updated.
+
+### 15.6. Extension Points
+None.
+
+---
+
+## 16. Use Case: Monitor Attendance
+
+### 16.1. Summary
+This use case allows a lecturer to monitor, in real time, the number and list of students who have recorded attendance while an attendance session is open.
+
+### 16.2. Flow of Events
+#### 16.2.1. Main Flow
+1. The lecturer opens the Attendance Monitoring interface for an ongoing attendance session.
+2. The system continuously updates the list of students who have submitted their attendance.
+3. The system displays the current attendance count: Number of students who have recorded attendance / Total number of students.
+
+#### 16.2.2. Alternative Flows
+None.
+
+### 16.3. Special Requirements
+The system updates the attendance list whenever new attendance data is submitted.
+
+### 16.4. Precondition
+The lecturer is authenticated and the attendance session is open.
+
+### 16.5. Postcondition
+The system state remains unchanged.
+
+### 16.6. Extension Points
+None.
+
+---
+
+## 17. Use Case: Update Attendance
+
+### 17.1. Summary
+This use case allows a lecturer to manually modify a student's attendance status (e.g., from Absent to Present or Late).
+
+### 17.2. Flow of Events
+#### 17.2.1. Main Flow
+1. The lecturer selects the attendance records for a class session.
+2. The lecturer locates the student whose attendance record needs to be modified and changes the attendance status (e.g., from Absent to Present).
+3. The lecturer selects Save.
+4. The system updates the attendance status in the database and displays a success notification.
+
+#### 17.2.2. Alternative Flows
+None.
+
+### 17.3. Special Requirements
+The system may maintain an audit log recording when the lecturer modified an attendance record for auditing purposes.
+
+### 17.4. Precondition
+The lecturer is authenticated.
+
+### 17.5. Postcondition
+The student's attendance status is updated in the system.
+
+### 17.6. Extension Points
+None.
+
+---
+
+## 18. Use Case: Close Attendance
+
+### 18.1. Summary
+This use case allows a lecturer to manually close an attendance session before its configured end time.
+
+### 18.2. Flow of Events
+#### 18.2.1. Main Flow
+1. The lecturer selects an open attendance session and selects the Close button.
+2. The system prompts the lecturer to confirm the action.
+3. The lecturer confirms the closure.
+4. The system changes the session status to "Closed", after which students can no longer record attendance.
+
+#### 18.2.2. Alternative Flows
+None.
+
+### 18.3. Special Requirements
+All students who have not recorded attendance at the time of closure are automatically assigned the "Absent" status by the system.
+
+### 18.4. Precondition
+The attendance session is in the Open state.
+
+### 18.5. Postcondition
+The attendance session status is changed to Closed.
+
+### 18.6. Extension Points
+None.
+
+---
+
+## 19. Use Case: View Attendance Report
+
+### 19.1. Summary
+This use case allows a lecturer to view an overall attendance report and statistics for a class.
+
+### 19.2. Flow of Events
+#### 19.2.1. Main Flow
+1. The lecturer selects the View Attendance Report function for a class.
+2. The system aggregates attendance data from all class sessions.
+3. The system displays a list of students together with the number of absences, number of attendances, and attendance percentage. The lecturer may export the report as an Excel or PDF file.
+
+#### 19.2.2. Alternative Flows
+None.
+
+### 19.3. Special Requirements
+None.
+
+### 19.4. Precondition
+The lecturer is authenticated.
+
+### 19.5. Postcondition
+The system state remains unchanged.
+
+### 19.6. Extension Points
+None.
