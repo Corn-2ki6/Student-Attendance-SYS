@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mxfile host="app.diagrams.net" pages="2">
   <diagram name="Trang-1" id="58xsUgyScjwG-nFMlOm4">
-    <mxGraphModel dx="2066" dy="1129" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1446" dy="790" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -20,9 +20,6 @@
         <mxCell id="CfPLpkK1FJZGkRsU4ofM-89" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="View Profile" vertex="1">
           <mxGeometry height="50" width="136" x="334" y="330" as="geometry" />
         </mxCell>
-        <mxCell id="CfPLpkK1FJZGkRsU4ofM-113" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="View Dashboard" vertex="1">
-          <mxGeometry height="50" width="186" x="300" y="398" as="geometry" />
-        </mxCell>
         <mxCell id="CfPLpkK1FJZGkRsU4ofM-114" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Check Attendance" vertex="1">
           <mxGeometry height="50" width="196" x="125" y="640" as="geometry" />
         </mxCell>
@@ -31,9 +28,6 @@
         </mxCell>
         <mxCell id="CfPLpkK1FJZGkRsU4ofM-116" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Enter Attendance&lt;br&gt;Password" vertex="1">
           <mxGeometry height="50" width="196" x="124" y="760" as="geometry" />
-        </mxCell>
-        <mxCell id="CfPLpkK1FJZGkRsU4ofM-117" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="View Classes" vertex="1">
-          <mxGeometry height="50" width="186" x="300" y="490" as="geometry" />
         </mxCell>
         <mxCell id="CfPLpkK1FJZGkRsU4ofM-119" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="View Attendance Percentage" vertex="1">
           <mxGeometry height="50" width="180" x="132" y="950" as="geometry" />
@@ -46,12 +40,6 @@
         </mxCell>
         <mxCell id="CfPLpkK1FJZGkRsU4ofM-149" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Configure Attendance" vertex="1">
           <mxGeometry height="50" width="162" x="494" y="680" as="geometry" />
-        </mxCell>
-        <mxCell id="pW9djtaNhNHdBBpUDaL1-4" edge="1" parent="1" source="CfPLpkK1FJZGkRsU4ofM-74" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" target="CfPLpkK1FJZGkRsU4ofM-113" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="670" y="920" as="sourcePoint" />
-            <mxPoint x="720" y="870" as="targetPoint" />
-          </mxGeometry>
         </mxCell>
         <mxCell id="pW9djtaNhNHdBBpUDaL1-5" edge="1" parent="1" source="CfPLpkK1FJZGkRsU4ofM-74" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" target="CfPLpkK1FJZGkRsU4ofM-117" value="">
           <mxGeometry height="50" relative="1" width="50" as="geometry">
@@ -87,12 +75,6 @@
           <mxGeometry height="50" relative="1" width="50" as="geometry">
             <mxPoint x="80" y="410" as="sourcePoint" />
             <mxPoint x="140" y="640" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="pW9djtaNhNHdBBpUDaL1-11" edge="1" parent="1" source="CfPLpkK1FJZGkRsU4ofM-75" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" target="CfPLpkK1FJZGkRsU4ofM-113" value="">
-          <mxGeometry height="50" relative="1" width="50" as="geometry">
-            <mxPoint x="420" y="460" as="sourcePoint" />
-            <mxPoint x="652.9999999999995" y="415" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="pW9djtaNhNHdBBpUDaL1-12" edge="1" parent="1" style="endArrow=none;html=1;rounded=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0;exitY=1;exitDx=0;exitDy=0;exitPerimeter=0;" target="CfPLpkK1FJZGkRsU4ofM-117" value="">
@@ -222,6 +204,9 @@
         </mxCell>
         <mxCell id="CfPLpkK1FJZGkRsU4ofM-118" parent="DBlgTt2txkk6HAFG3-eS-2" style="ellipse;whiteSpace=wrap;html=1;" value="View Attendance History" vertex="1">
           <mxGeometry height="50" width="186" x="40" y="867.5" as="geometry" />
+        </mxCell>
+        <mxCell id="CfPLpkK1FJZGkRsU4ofM-117" parent="DBlgTt2txkk6HAFG3-eS-2" style="ellipse;whiteSpace=wrap;html=1;" value="View Classes" vertex="1">
+          <mxGeometry height="50" width="186" x="226" y="440" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
