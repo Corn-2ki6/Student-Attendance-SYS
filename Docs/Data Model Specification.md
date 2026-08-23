@@ -211,110 +211,32 @@ For password-based attendance, the attendance password is represented by `attend
 
 ---
 
-## 5. ERD
+## 5. ERD Explanation
 
-```mermaid
-erDiagram
+### User, Student, and Lecturer
 
-    User ||--|| Student : "has"
-    User ||--|| Lecturer : "has"
+USER is the common account entity for authentication.  
+STUDENT and LECTURER store their role-specific profile information and reference the corresponding USER account.
 
-    Course ||--o{ Class_Section : "contains"
-    Lecturer ||--o{ Class_Section : "teaches"
+### Course and Class Section
 
-    Student ||--o{ Enrollment : "enrolls"
-    Class_Section ||--o{ Enrollment : "has"
+COURSE represents a subject, while CLASS_SECTION represents a specific class section of that course. A lecturer is assigned to a class section.
 
-    Class_Section ||--o{ Schedule : "has"
+### Enrollment
 
-    Class_Section ||--o{ Attendance_Session : "has"
-    Attendance_Session ||--o{ Attendance_Record : "contains"
+ENROLLMENT resolves the many-to-many relationship between students and class sections.
 
-    Student ||--o{ Attendance_Record : "has"
+### Schedule
 
-    User {
-        int userID PK
-        varchar userName
-        varchar passwordHash
-        varchar fullName
-        varchar email
-        varchar status
-    }
+SCHEDULE stores the specific learning schedule of a class, including the day, start time, end time, and classroom.
 
-    Student {
-        int studentID PK
-        int userID FK
-        varchar studentCode
-        varchar fullName
-        date dateOfBirth
-        varchar gender
-        varchar major
-    }
+### Attendance Session
 
-    Lecturer {
-        int lecturerID PK
-        int userID FK
-        varchar lecturerCode
-        varchar fullName
-        varchar department
-    }
+ATTENDANCE_SESSION represents one specific attendance session of a class. A session has a date, start time, end time, attendance method, optional hashed attendance password, and lifecycle status.
 
-    Course {
-        int courseID PK
-        varchar courseCode
-        varchar courseName
-        int credits
-    }
+### Attendance Record
 
-    Class_Section {
-        int classID PK
-        int courseID FK
-        int lecturerID FK
-        varchar classCode
-        varchar semester
-        varchar academicYear
-    }
-
-    Enrollment {
-        int enrollmentID PK
-        int studentID FK
-        int classID FK
-        date enrollmentDate
-        varchar status
-    }
-
-    Schedule {
-        int scheduleID PK
-        int classID FK
-        int dayOfWeek
-        time startTime
-        time endTime
-        varchar room
-    }
-
-    Attendance_Session {
-        int sessionID PK
-        int classID FK
-        date sessionDate
-        datetime startTime
-        datetime endTime
-        varchar attendanceMethod
-        varchar attendancePasswordHash
-        varchar status
-    }
-
-    Attendance_Record {
-        int attendanceID PK
-        int sessionID FK
-        int studentID FK
-        varchar status
-        datetime checkInTime
-        varchar method
-        text remark
-    }
-```
-
----
+ATTENDANCE_RECORD represents the attendance result of one student for one attendance session.
 
 ## 6. Design Scope
 
