@@ -1,19 +1,48 @@
-# Tài liệu Hệ thống Quản lý Điểm danh Sinh viên (Student-Attendance-SYS)
+# Student Attendance System (Student-Attendance-SYS)
 
-## Danh mục Tài liệu Dự án
+Hệ thống Quản lý Điểm danh Sinh viên — Bài tập lớn môn Phân tích Thiết kế Hệ thống & Phát triển Phần mềm.
 
-### Stage 1 – Analysis and Specification of Requirements
-- [1. Functional Requirements](stage1_functional_reqs.md)
-- [2. Non-Functional Requirements](stage1_non_functional_reqs.md)
-- [3. Diagrams (DFD, Use Case, Class Diagram)](stage1_diagrams.md)
+---
+
+## 📌 Tổng quan dự án (Project Overview)
+
+Dự án này tập trung vào việc xây dựng hệ thống hỗ trợ quản lý, theo dõi và báo cáo điểm danh của sinh viên. Dự án tuân thủ quy trình phát triển phần mềm qua 4 giai đoạn chuẩn.
+
+---
+
+## 🛠️ Công cụ sử dụng (Tools & Tech Stack)
+
+* **Quản lý dự án & Tài liệu:** GitHub
+* **Vẽ sơ đồ & Thiết kế:** [diagrams.net (Draw.io)](https://app.diagrams.net/)
+* **Lập trình (IDE):** VS Code / Visual Studio / PyCharm / Eclipse
+* **Kiểm thử (Testing):** Microsoft Excel
+* **Theo dõi lỗi (Bug Tracking):** Jira / Bugzilla / Mantis
+* **Đóng gói & Triển khai:** Docker
+
+---
+
+## 📂 Cấu trúc Tài liệu Dự án (Document Structure)
+
+Tài liệu thiết kế chi tiết của hệ thống được lưu trữ trong thư mục `docs/`:
+
+### Stage 1 – Analysis & Specification of Requirements
+* **Functional Requirements:** Mô tả các chức năng cốt lõi (Điểm danh, quản lý sinh viên, báo cáo,...).
+* **Non-Functional Requirements:** Yêu cầu về hiệu năng, bảo mật, giao diện người dùng.
+* **Diagrams:**
+  * Data Flow Diagram (DFD)
+  * Use Case Diagram
+  * Class Diagram
 
 ### Stage 2 – Design
-- [1. Interface Design Description](stage2_interface_design.md)
-- [2. Data Model & Database Schema](stage2_data_model.md)
+* **Data Model:** Thiết kế CSDL (Định nghĩa các bảng, Primary Keys, Foreign Keys).
+* **Interface Design Description:** Thiết kế giao diện người dùng (UI Web/Console).
 
 ### Stage 3 – Implementation
-- [1. System Architecture & Setup Guide](stage3_implementation.md)
+* **Source Code:** Mã nguồn chương trình (Python / C++ / Java).
+* **Environment:** Hướng dẫn cấu hình môi trường và triển khai Docker.
 
-### Stage 4 – Testing
-- [1. Test Plan & Test Cases Report](stage4_testing.md)
-- File Test Cases chi tiết (Excel): xem tại thư mục `testcases/`
+### Stage 4 – Testing & Bug Management
+* **Test Cases:** Bộ kịch bản kiểm thử chi tiết.
+* **Bug Tracking:** Quản lý và theo dõi lỗi hệ thống.
+
+---
