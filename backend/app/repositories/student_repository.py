@@ -118,3 +118,20 @@ def get_student_attendance_history(
     )
 
     return result.all()
+
+def create_student(
+    db: Session,
+    user_id: int,
+    student_code: str,
+    full_name: str,
+) -> Student:
+
+    student = Student(
+        userID=user_id,
+        studentCode=student_code,
+        fullName=full_name,
+    )
+
+    db.add(student)
+
+    return student
