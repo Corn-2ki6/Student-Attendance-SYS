@@ -1,0 +1,9 @@
+fastapi==0.141.1
+uvicorn==0.52.4
+SQLAlchemy==2.0.52
+PyMySQL==1.2.0
+alembic==1.19.2
+PyJWT==2.13.0
+pwdlib[argon2]
+pydantic-settings
+python-multipart
