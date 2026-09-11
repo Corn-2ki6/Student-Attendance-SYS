@@ -1,50 +1,241 @@
 from PySide6.QtCore import Qt
-from PySide6.QtWidgets import QWidget, QVBoxLayout, QFrame, QLabel, QLineEdit, QPushButton, QMessageBox
+from PySide6.QtWidgets import (
+    QWidget,
+    QVBoxLayout,
+    QFrame,
+    QLabel,
+    QLineEdit,
+    QPushButton,
+    QMessageBox,
+)
+
 from api.client import ApiError
 
 
 class LoginPage(QWidget):
-    def __init__(self, auth_api, logged_in):
+
+    def __init__(
+        self,
+        auth_api,
+        logged_in,
+        show_register=None,
+    ):
         super().__init__()
+
         self.auth_api = auth_api
         self.logged_in = logged_in
+        self.show_register = show_register
+
+        # =================================
+        # MAIN LAYOUT
+        # =================================
+
         root = QVBoxLayout(self)
         root.setAlignment(Qt.AlignCenter)
+
+        # =================================
+        # LOGIN CARD
+        # =================================
+
         card = QFrame()
         card.setObjectName("loginCard")
         card.setFixedWidth(430)
+
         layout = QVBoxLayout(card)
-        layout.setContentsMargins(38, 38, 38, 38)
+
+        layout.setContentsMargins(
+            38,
+            38,
+            38,
+            38,
+        )
+
         layout.setSpacing(14)
-        title = QLabel("Student Attendance")
-        title.setObjectName("loginTitle")
-        sub = QLabel("Sign in with your student account")
-        sub.setObjectName("muted")
+
+        # =================================
+        # TITLE
+        # =================================
+
+        title = QLabel(
+            "Attendance System"
+        )
+
+        title.setObjectName(
+            "loginTitle"
+        )
+
+        subtitle = QLabel(
+            "Sign in with your Student or Lecturer account"
+        )
+
+        subtitle.setObjectName(
+            "muted"
+        )
+
+        layout.addWidget(title)
+        layout.addWidget(subtitle)
+
+        layout.addSpacing(8)
+
+        # =================================
+        # USERNAME
+        # =================================
+
         self.username = QLineEdit()
-        self.username.setPlaceholderText("Username")
+
+        self.username.setPlaceholderText(
+            "Username"
+        )
+
+        # =================================
+        # PASSWORD
+        # =================================
+
         self.password = QLineEdit()
-        self.password.setPlaceholderText("Password")
-        self.password.setEchoMode(QLineEdit.Password)
-        self.password.returnPressed.connect(self.login)
-        btn = QPushButton("LOGIN")
-        btn.setObjectName("primaryButton")
-        btn.clicked.connect(self.login)
-        hint = QLabel("Test backend script creates: student01 / 123456")
-        hint.setObjectName("muted")
-        layout.addWidget(title); layout.addWidget(sub); layout.addSpacing(8)
-        layout.addWidget(self.username); layout.addWidget(self.password); layout.addWidget(btn); layout.addWidget(hint)
+
+        self.password.setPlaceholderText(
+            "Password"
+        )
+
+        self.password.setEchoMode(
+            QLineEdit.Password
+        )
+
+        self.password.returnPressed.connect(
+            self.login
+        )
+
+        # =================================
+        # LOGIN BUTTON
+        # =================================
+
+        login_button = QPushButton(
+            "LOGIN"
+        )
+
+        login_button.setObjectName(
+            "primaryButton"
+        )
+
+        login_button.setCursor(
+            Qt.PointingHandCursor
+        )
+
+        login_button.clicked.connect(
+            self.login
+        )
+
+        layout.addWidget(
+            self.username
+        )
+
+        layout.addWidget(
+            self.password
+        )
+
+        layout.addWidget(
+            login_button
+        )
+
+        # =================================
+        # REGISTER BUTTON
+        # =================================
+
+        if self.show_register is not None:
+
+            register_button = QPushButton(
+                "CREATE STUDENT ACCOUNT"
+            )
+
+            register_button.setCursor(
+                Qt.PointingHandCursor
+            )
+
+            register_button.clicked.connect(
+                self.show_register
+            )
+
+            layout.addWidget(
+                register_button
+            )
+
         root.addWidget(card)
 
+    # =====================================
+    # LOGIN
+    # =====================================
+
     def login(self):
-        if not self.username.text().strip() or not self.password.text():
-            QMessageBox.warning(self, "Login", "Enter username and password.")
+
+        username = self.username.text().strip()
+        password = self.password.text()
+
+        # =================================
+        # VALIDATION
+        # =================================
+
+        if not username or not password:
+
+            QMessageBox.warning(
+                self,
+                "Login",
+                "Please enter your username and password.",
+            )
+
             return
+
+        # =================================
+        # API LOGIN
+        # =================================
+
         try:
-            user = self.auth_api.login(self.username.text().strip(), self.password.text())
-            if user.get("role") != "STUDENT":
+
+            user = self.auth_api.login(
+                username,
+                password,
+            )
+
+            role = user.get(
+                "role"
+            )
+
+            # =================================
+            # VALID ROLE
+            # =================================
+
+            if role not in (
+                "STUDENT",
+                "LECTURER",
+            ):
+
                 self.auth_api.logout()
-                QMessageBox.warning(self, "Role", "This frontend is for STUDENT accounts only.")
+
+                QMessageBox.warning(
+                    self,
+                    "Access Denied",
+                    "This account is not allowed to use this application.",
+                )
+
                 return
-            self.logged_in()
+
+            # =================================
+            # LOGIN SUCCESS
+            # =================================
+
+            self.logged_in(user)
+
         except ApiError as exc:
-            QMessageBox.warning(self, "Login failed", str(exc))
+
+            QMessageBox.warning(
+                self,
+                "Login Failed",
+                str(exc),
+            )
+
+        except Exception as exc:
+
+            QMessageBox.critical(
+                self,
+                "Login Error",
+                f"Unexpected error:\n{exc}",
+            )
