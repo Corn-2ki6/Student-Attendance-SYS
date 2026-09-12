@@ -12,8 +12,102 @@ from app.repositories.user_repository import (
     get_user_by_username,
     get_user_by_id,
     get_user_by_username_and_email,
+    get_user_by_email,
+    create_user,
     update_user_password,
 )
+
+from app.repositories.student_repository import (
+    create_student,
+)
+
+
+# ============================================================
+# REGISTER
+# ============================================================
+
+def register_user(
+    db: Session,
+    full_name: str,
+    email: str,
+    username: str,
+    password: str,
+):
+    # 1. Check username
+    existing_username = get_user_by_username(
+        db=db,
+        username=username,
+    )
+
+    if existing_username is not None:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Username already exists",
+        )
+
+    # 2. Check email
+    existing_email = get_user_by_email(
+        db=db,
+        email=email,
+    )
+
+    if existing_email is not None:
+        raise HTTPException(
+            status_code=status.HTTP_409_CONFLICT,
+            detail="Email already exists",
+        )
+
+    # 3. Validate password
+    if len(password) < 6:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Password must be at least 6 characters",
+        )
+
+    # 4. Hash password
+    password_hash = hash_password(password)
+
+    try:
+        # 5. Create User
+        user = create_user(
+            db=db,
+            username=username,
+            password_hash=password_hash,
+            full_name=full_name,
+            email=email,
+        )
+
+        # 6. Generate student code
+        student_code = f"SV{user.userID:03d}"
+
+        # 7. Create Student profile
+        student = create_student(
+            db=db,
+            user_id=user.userID,
+            student_code=student_code,
+            full_name=full_name,
+        )
+
+        # 8. Commit User + Student
+        db.commit()
+
+        db.refresh(user)
+        db.refresh(student)
+
+        return {
+            "userID": user.userID,
+            "studentID": student.studentID,
+            "username": user.userName,
+            "fullName": user.fullName,
+            "email": user.email,
+            "studentCode": student.studentCode,
+            "role": user.role,
+            "status": user.status,
+        }
+
+    except Exception:
+        db.rollback()
+        raise
 
 
 # ============================================================

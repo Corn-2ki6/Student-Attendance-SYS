@@ -7,12 +7,14 @@ from app.core.dependencies import get_current_user
 
 from app.schemas.auth import (
     TokenResponse,
+    RegisterRequest,
     ForgotPasswordRequest,
     ResetPasswordRequest,
 )
 
 from app.services.auth_service import (
     login_user,
+    register_user,
     forgot_password,
     reset_password,
 )
@@ -22,6 +24,29 @@ router = APIRouter(
     prefix="/api/auth",
     tags=["Authentication"]
 )
+
+
+# ============================================================
+# REGISTER
+# ============================================================
+
+@router.post("/register")
+def register(
+    request: RegisterRequest,
+    db: Session = Depends(get_db),
+):
+    result = register_user(
+        db=db,
+        full_name=request.fullName,
+        email=request.email,
+        username=request.username,
+        password=request.password,
+    )
+
+    return {
+        "message": "Registration completed successfully",
+        "user": result,
+    }
 
 
 # ============================================================
@@ -96,6 +121,7 @@ def reset_password_endpoint(
     return {
         "message": "Password reset successfully"
     }
+
 
 # ============================================================
 # LOGOUT
