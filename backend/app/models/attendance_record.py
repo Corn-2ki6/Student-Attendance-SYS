@@ -9,6 +9,14 @@ from app.core.database import Base
 class AttendanceRecord(Base):
     __tablename__ = "attendance_records"
 
+    __table_args__ = (
+        UniqueConstraint(
+            "sessionID",
+            "studentID",
+            name="uq_attendance_session_student"
+        ),
+    )
+
     attendanceID: Mapped[int] = mapped_column(
         primary_key=True,
         autoincrement=True
