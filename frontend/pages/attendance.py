@@ -127,9 +127,7 @@ class AttendancePage(BasePage):
     # =========================
 
     def check_in(self):
-        dialog = CheckInDialog(
-            self.api,
-            self,
+        dialog = CheckInDialog(self.api, self)
         )
 
         if dialog.exec():
