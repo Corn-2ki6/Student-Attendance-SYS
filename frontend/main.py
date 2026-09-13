@@ -16,6 +16,7 @@ from api.lecturer import LecturerApi
 
 from pages.login import LoginPage
 from pages.register import RegisterPage
+from pages.forgot_password import ForgotPasswordPage
 
 # =========================
 # STUDENT PAGES
@@ -91,6 +92,7 @@ class AttendanceApplication(QMainWindow):
             self.auth,
             self.handle_login,
             self.show_register,
+            self.show_forgot_password,
         )
 
         self.stack.addWidget(
@@ -110,6 +112,19 @@ class AttendanceApplication(QMainWindow):
             self.register_page
         )
 
+        # =================================
+        # FORGOT PASSWORD
+        # =================================
+
+        self.forgot_password_page = ForgotPasswordPage(
+            self.auth,
+            self.show_login,
+        )
+
+        self.stack.addWidget(
+            self.forgot_password_page
+        )
+
     # =====================================
     # SHOW REGISTER
     # =====================================
@@ -119,6 +134,17 @@ class AttendanceApplication(QMainWindow):
 
         self.stack.setCurrentWidget(
             self.register_page
+        )
+
+    # =====================================
+    # SHOW FORGOT PASSWORD
+    # =====================================
+
+    def show_forgot_password(self):
+        self.forgot_password_page.clear_form()
+
+        self.stack.setCurrentWidget(
+            self.forgot_password_page
         )
 
     # =====================================

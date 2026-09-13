@@ -21,3 +21,16 @@ QLineEdit:focus { border: 1px solid #2563eb; }
 QTableWidget { background: white; border: 1px solid #e5e7eb; border-radius: 10px; gridline-color: #eef0f3; selection-background-color: #dbeafe; }
 QTableWidget::item { padding: 7px; }
 QHeaderView::section { background: #f3f4f6; border: none; border-bottom: 1px solid #e5e7eb; padding: 10px; font-weight: 650; }
+
+QPushButton#linkButton {
+    background: transparent;
+    border: none;
+    color: #2563eb;
+    text-align: right;
+    padding: 4px 2px;
+    font-weight: 600;
+}
+QPushButton#linkButton:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
