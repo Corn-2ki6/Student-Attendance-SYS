@@ -30,7 +30,7 @@ class AttendancePage(BasePage):
             QMessageBox.warning(self, "Attendance", str(exc))
 
     def check_in(self):
-        dialog = CheckInDialog(self)
+        dialog = CheckInDialog(self.api, self)
         if not dialog.exec(): return
         sid = dialog.session_id.text().strip()
         if not sid.isdigit():
