@@ -19,12 +19,14 @@ class LoginPage(QWidget):
         auth_api,
         logged_in,
         show_register=None,
+        show_forgot_password=None,
     ):
         super().__init__()
 
         self.auth_api = auth_api
         self.logged_in = logged_in
         self.show_register = show_register
+        self.show_forgot_password = show_forgot_password
 
         # =================================
         # MAIN LAYOUT
@@ -136,6 +138,32 @@ class LoginPage(QWidget):
         layout.addWidget(
             login_button
         )
+
+        # =================================
+        # FORGOT PASSWORD
+        # =================================
+
+        if self.show_forgot_password is not None:
+
+            forgot_button = QPushButton(
+                "FORGOT PASSWORD?"
+            )
+
+            forgot_button.setObjectName(
+                "linkButton"
+            )
+
+            forgot_button.setCursor(
+                Qt.PointingHandCursor
+            )
+
+            forgot_button.clicked.connect(
+                self.show_forgot_password
+            )
+
+            layout.addWidget(
+                forgot_button
+            )
 
         # =================================
         # REGISTER BUTTON
