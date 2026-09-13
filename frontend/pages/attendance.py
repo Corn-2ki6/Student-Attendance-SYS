@@ -73,10 +73,25 @@ class AttendancePage(BasePage):
         except ApiError as exc:
             QMessageBox.warning(self, "Attendance", str(exc))
 
+    def submit_attendance(self, session_id, password=None):
+        """Hàm xử lý gọi API điểm danh được CheckInDialog gọi tới."""
+        try:
+            # Gọi API submit điểm danh về Backend
+            payload = {"sessionID": session_id}
+            if password:
+                payload["password"] = password
+
+            result = self.api.submit(payload)
+            QMessageBox.information(self, "Success", "Attendance submitted successfully!")
+            self.refresh()
+            return True
+        except ApiError as exc:
+            QMessageBox.warning(self, "Check-in Failed", str(exc))
+            return False
+
     def check_in(self):
         dialog = CheckInDialog(attendance_api=self.api, parent=self)
 
-        # Hộp thoại đã gửi điểm danh và báo kết quả.
-        # Khi thành công, chỉ tải lại lịch sử.
+        # Hộp thoại mở lên, khi điểm danh thành công sẽ reload lại bảng
         if dialog.exec():
             self.refresh()
