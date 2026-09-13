@@ -46,14 +46,8 @@ class LecturerDashboardPage(BasePage):
             "0",
         )
 
-        self.students_card = self.create_stat_card(
-            "Students",
-            "0",
-        )
-
         cards.addWidget(self.classes_card)
         cards.addWidget(self.sessions_card)
-        cards.addWidget(self.students_card)
 
         self.body.addLayout(cards)
 
@@ -168,49 +162,6 @@ class LecturerDashboardPage(BasePage):
 
             self.sessions_card.value_label.setText(
                 str(len(sessions))
-            )
-
-            # =========================
-            # Students
-            # =========================
-
-            student_ids = set()
-
-            for class_item in classes:
-                class_id = class_item.get(
-                    "classID"
-                )
-
-                if class_id is None:
-                    continue
-
-                try:
-                    students = (
-                        self.lecturer_api.class_students(
-                            class_id
-                        )
-                    )
-
-                    if students is None:
-                        continue
-
-                    for student in students:
-                        student_id = student.get(
-                            "studentID"
-                        )
-
-                        if student_id is not None:
-                            student_ids.add(
-                                student_id
-                            )
-
-                except Exception:
-                    # Keep the dashboard running
-                    # if one class cannot be loaded.
-                    continue
-
-            self.students_card.value_label.setText(
-                str(len(student_ids))
             )
 
         except Exception as exc:
