@@ -1,0 +1,8 @@
+Students: 50
+Lecturers: 1
+Users total: 51
+Enrollments: 250
+Seeded attendance records: 571
+Student login: student01 / 123456
+Lecturer login: lecturer01 / 123456
+Attendance password: Pass@123
