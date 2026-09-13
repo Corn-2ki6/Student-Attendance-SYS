@@ -173,7 +173,7 @@ class CheckInDialog(QDialog):
         try:
 
             result = (
-                self.attendance_api.submit_attendance(
+                self.attendance_api.submit(
                     session_id,
                     password or None,
                 )
