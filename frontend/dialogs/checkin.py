@@ -133,9 +133,7 @@ class CheckInDialog(QDialog):
             return
 
         try:
-            self.attendance_api.submit(
-                session_id,
-                password or None,
+
             )
 
             QMessageBox.information(

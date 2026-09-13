@@ -70,9 +70,10 @@ class DashboardPage(BasePage):
             QMessageBox.warning(self, "Dashboard", str(exc))
 
     def check_in(self):
-        dialog = CheckInDialog(self.attendance_api, self)
+        dialog = CheckInDialog(
+            self.attendance_api,
+            self,
         )
 
-        # Hộp thoại đã gửi điểm danh; chỉ cập nhật lại thống kê.
         if dialog.exec():
             self.refresh()
