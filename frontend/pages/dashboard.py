@@ -1,4 +1,4 @@
-from PySide6.QtWidgets import QHBoxLayout, QFrame, QVBoxLayout, QLabel, QPushButton, QMessageBox
+﻿from PySide6.QtWidgets import QHBoxLayout, QFrame, QVBoxLayout, QLabel, QPushButton, QMessageBox
 from pages.base import BasePage
 from widgets.stat_card import StatCard
 from dialogs.checkin import CheckInDialog
@@ -41,18 +41,10 @@ class DashboardPage(BasePage):
             QMessageBox.warning(self, "Dashboard", str(exc))
 
     def check_in(self):
-        dialog = CheckInDialog(self)
-        if not dialog.exec(): return
-        sid = dialog.session_id.text().strip()
-        if not sid.isdigit():
-            QMessageBox.warning(self, "Invalid", "Session ID must be a number.")
-            return
-        try:
-            result = self.attendance_api.submit(int(sid), dialog.password.text())
-            QMessageBox.information(
-                self, "Attendance recorded",
-                f"Status: {result.get('status', 'PRESENT')}\nMethod: {result.get('method', '')}"
-            )
+        dialog = CheckInDialog(
+            self.attendance_api,
+            self,
+        )
+
+        if dialog.exec():
             self.refresh()
-        except ApiError as exc:
-            QMessageBox.warning(self, "Check-in failed", str(exc))
