@@ -267,7 +267,7 @@ INSERT INTO students (studentID,userID,studentCode,fullName,dateOfBirth,gender,m
 INSERT INTO users (userID,userName,passwordHash,fullName,email,status,role) VALUES (122,'student122','$argon2id$v=19$m=65536,t=3,p=4$d03mJbKDvQdAn/x5bE0mtQ$nzHNDfKD6uDy56CnNefl21QCaynQNqJHoPmSla4/BpY','Tran Van Trang','student122@gmail.com','ACTIVE','STUDENT');
 INSERT INTO students (studentID,userID,studentCode,fullName,dateOfBirth,gender,major) VALUES (122,122,'S122','Tran Van Trang','2004-02-08','Female','Computer Science');
 INSERT INTO users (userID,userName,passwordHash,fullName,email,status,role) VALUES (123,'student123','$argon2id$v=19$m=65536,t=3,p=4$d03mJbKDvQdAn/x5bE0mtQ$nzHNDfKD6uDy56CnNefl21QCaynQNqJHoPmSla4/BpY','Le Van Tuan','student123@gmail.com','ACTIVE','STUDENT');
-INSERT INTO students (studentID,userID,studentCode,fullName,dateOfBirth,gender,major) VALUES (123,123,'S123','Le Van Tuan','2004-03-08','Male','Computer Science');
+INSERT INTO students (studentID,userID,studentCode,fullName,dateOfBirth,gender,major) VALUES (123,123,'STU123','Le Van Tuan','2004-03-08','Male','Computer Science');
 INSERT INTO users (userID,userName,passwordHash,fullName,email,status,role) VALUES (124,'student124','$argon2id$v=19$m=65536,t=3,p=4$d03mJbKDvQdAn/x5bE0mtQ$nzHNDfKD6uDy56CnNefl21QCaynQNqJHoPmSla4/BpY','Pham Van Vy','student124@gmail.com','ACTIVE','STUDENT');
 INSERT INTO students (studentID,userID,studentCode,fullName,dateOfBirth,gender,major) VALUES (124,124,'S124','Pham Van Vy','2004-04-06','Female','Computer Science');
 INSERT INTO users (userID,userName,passwordHash,fullName,email,status,role) VALUES (125,'student125','$argon2id$v=19$m=65536,t=3,p=4$d03mJbKDvQdAn/x5bE0mtQ$nzHNDfKD6uDy56CnNefl21QCaynQNqJHoPmSla4/BpY','Hoang Van Yen','student125@gmail.com','ACTIVE','STUDENT');
@@ -1086,3 +1086,22 @@ INSERT INTO attendance_records (attendanceID,sessionID,studentID,status,checkInT
 SET FOREIGN_KEY_CHECKS=1;
 SELECT COUNT(*) AS students FROM students;
 SELECT classID,COUNT(*) AS student_count FROM enrollments GROUP BY classID ORDER BY classID;
+
+-- ============================================================
+-- FINAL SEED VERIFICATION
+-- ============================================================
+SELECT COUNT(*) AS total_students FROM students;
+SELECT COUNT(*) AS total_lecturers FROM lecturers;
+SELECT userID, userName, email, role
+FROM users
+WHERE userName = 'lecturer01';
+SELECT classID, COUNT(*) AS student_count
+FROM enrollments
+GROUP BY classID
+ORDER BY classID;
+
+-- Expected:
+-- total_students  = 250
+-- total_lecturers = 1
+-- lecturer01 exists
+-- classID 1..5 each has exactly 50 students
