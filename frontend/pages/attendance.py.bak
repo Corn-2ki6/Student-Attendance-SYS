@@ -1,4 +1,4 @@
-﻿from PySide6.QtWidgets import (
+from PySide6.QtWidgets import (
     QHBoxLayout,
     QTableWidget,
     QTableWidgetItem,
@@ -128,7 +128,7 @@ class AttendancePage(BasePage):
 
     def check_in(self):
         dialog = CheckInDialog(self.api, self)
+        )
 
         if dialog.exec():
             self.refresh()
-

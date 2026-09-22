@@ -1,4 +1,4 @@
-﻿from PySide6.QtWidgets import (
+from PySide6.QtWidgets import (
     QDialog,
     QVBoxLayout,
     QLabel,
@@ -101,8 +101,13 @@ class CheckInDialog(QDialog):
     # =========================
 
     def submit(self):
-        session_id_text = self.session_id.text().strip()
-        password = self.password.text()
+        session_id_text = (
+            self.session_id.text().strip()
+        )
+
+        password = (
+            self.password.text()
+        )
 
         if not session_id_text:
             QMessageBox.warning(
@@ -110,22 +115,25 @@ class CheckInDialog(QDialog):
                 "Submit Attendance",
                 "Please enter a session ID.",
             )
+
             return
 
         try:
-            session_id = int(session_id_text)
+            session_id = int(
+                session_id_text
+            )
+
         except ValueError:
             QMessageBox.warning(
                 self,
                 "Submit Attendance",
                 "Session ID must be a number.",
             )
+
             return
 
         try:
-            self.attendance_api.submit(
-                session_id,
-                password or None,
+
             )
 
             QMessageBox.information(
@@ -142,4 +150,3 @@ class CheckInDialog(QDialog):
                 "Submit Attendance",
                 str(exc),
             )
-
